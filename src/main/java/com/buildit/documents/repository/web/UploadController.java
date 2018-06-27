@@ -4,6 +4,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+
 @RestController
 public class UploadController {
 
@@ -11,10 +14,8 @@ public class UploadController {
     private S3Wrapper s3Wrapper;
 
     @PostMapping("/upload")
-    public String upload(@RequestParam("file") MultipartFile file) {
+    public void upload(@RequestParam("file") MultipartFile file, HttpServletResponse response) throws IOException {
         s3Wrapper.upload(new MultipartFile[] {file});
-        return "redirect:/uploadStatus";
+        response.sendRedirect("/");
     }
-
-
 }
