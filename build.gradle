@@ -44,8 +44,8 @@ dependencies {
     compile("org.springframework.boot:spring-boot-starter-actuator")
     compile "com.amazonaws:aws-java-sdk-s3:1.11.354"
     compile 'org.apache.commons:commons-io:1.3.2'
-
     testCompile("junit:junit")
+    testCompile("org.springframework.boot:spring-boot-starter-test")
 }
 
 task copyApp(type: Copy, dependsOn: bootJar) {

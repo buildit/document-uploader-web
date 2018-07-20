@@ -1,0 +1,1 @@
+cloud.aws.s3.bucket=bucket

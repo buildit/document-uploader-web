@@ -13,7 +13,7 @@ public class UploadController {
     @Autowired
     private S3Wrapper s3Wrapper;
 
-    @PostMapping("/upload")
+    @PostMapping(value = "${api.path}")
     public void upload(@RequestParam("file") MultipartFile file, HttpServletResponse response) throws IOException {
         s3Wrapper.upload(new MultipartFile[] {file});
         response.sendRedirect("/");
